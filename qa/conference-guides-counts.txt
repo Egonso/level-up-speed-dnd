@@ -1,0 +1,14 @@
+Konferenz-Guides
+Total guide pages: 12
+Spieler: So spielt ihr -> ../assets/imagegen-guides/quickstart-so-spielst-du.png
+Spieler: Dein Zug -> ../assets/imagegen-guides/turn-flow-dein-zug.png
+Spieler: Würfelhilfe -> ../assets/imagegen-guides/dice-guide-wuerfelhilfe.png
+Spieler: Was kann ich tun? -> ../assets/imagegen-guides/decision-helper-was-kann-ich-tun.png
+Spieler: So nutzt ihr die Map -> ../assets/imagegen-conference/encounter-map-player-guide.png
+DM: DM-Karte -> ../assets/imagegen-guides/dm-card-60-sekunden.png
+DM: DM Map-Guide -> ../assets/imagegen-conference/encounter-map-dm-guide.png
+DM: Tischaufbau -> ../assets/imagegen-guides/table-setup-tischaufbau.png
+Orga: Messe-Vorbereitung -> ../assets/imagegen-conference/conference-prep-checklist.png
+Orga: 30-Minuten Demo-Flow -> ../assets/imagegen-conference/conference-demo-flow.png
+Tischmaterial: AP-Tracker -> ../assets/imagegen-guides/ap-tracker-6-ap.png
+Tischmaterial: Token-Sheet -> ../assets/imagegen-guides/token-sheet-status-resources.png

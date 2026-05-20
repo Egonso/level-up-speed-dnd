@@ -1,0 +1,111 @@
+@page {
+  size: A4;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0b0d10;
+  color: #f3f0e8;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  page-break-after: always;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(0, 215, 220, 0.22), transparent 26%),
+    radial-gradient(circle at 84% 88%, rgba(239, 77, 34, 0.2), transparent 28%),
+    linear-gradient(145deg, #10151a, #08090b 58%, #15100c);
+}
+
+.cover {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 8mm;
+  padding: 24mm;
+  text-align: center;
+  border: 4mm solid #121820;
+}
+
+.logo {
+  width: 42mm;
+  height: auto;
+}
+
+.eyebrow,
+.guide-page header p {
+  margin: 0;
+  color: #56d8d5;
+  font-size: 12pt;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 0;
+  max-width: 150mm;
+  font-size: 48pt;
+  line-height: 0.98;
+}
+
+.cover p:last-child {
+  margin: 0;
+  max-width: 130mm;
+  color: #d8d2c6;
+  font-size: 17pt;
+  line-height: 1.35;
+}
+
+.guide-page {
+  display: grid;
+  grid-template-rows: 23mm 1fr;
+  padding: 7mm;
+}
+
+.guide-page header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 8mm;
+  padding: 0 2mm 4mm;
+}
+
+.guide-page h2 {
+  margin: 0;
+  color: #f4efe4;
+  font-size: 20pt;
+  line-height: 1;
+  text-align: right;
+}
+
+.guide-page img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #07080a;
+  border: 0.6mm solid rgba(86, 216, 213, 0.38);
+  box-shadow: 0 0 0 1.2mm rgba(0, 0, 0, 0.9);
+}
+
+@media screen {
+  body {
+    display: grid;
+    gap: 24px;
+    padding: 24px;
+    justify-content: center;
+  }
+
+  .page {
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55);
+  }
+}
+

@@ -1,0 +1,1050 @@
+{
+  "project": "Level-Up Speed DND",
+  "version": "0.1.0-event-prototype",
+  "rules": {
+    "level": 4,
+    "apPerTurn": 6,
+    "actionCost": "2 AP",
+    "bonusActionCost": "1 AP, maximal 1 pro Zug",
+    "movementCost": "1 AP pro 3 Felder",
+    "reactionLimit": "1 Reaktion pro Runde",
+    "coreRolls": [
+      "Angriff: d20 + Attack Bonus gegen AC",
+      "Save: Ziel würfelt d20 + Save Bonus gegen DC",
+      "Check: d20 + Skill Bonus gegen DC"
+    ]
+  },
+  "cards": [
+    {
+      "id": "hero-rogue",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Rogue",
+      "subtitle": "Level 4 - präzise, schnell, riskant",
+      "art": "../assets/generated/hero-rogue.png",
+      "stats": ["AC 15", "HP 31", "Speed 6 Felder", "Prof +2", "Dex +4", "Save DC 14"],
+      "rules": [
+        "Rapier: +6, 1d8+4 Stich, 1 Feld.",
+        "Kurzbogen: +6, 1d6+4 Stich, 16 Felder.",
+        "Sneak Attack: 1x pro Zug +2d6, wenn du Vorteil hast oder ein Verbündeter am Ziel steht.",
+        "Cunning Action: Sprint, Lösen oder Verstecken als Bonus Action."
+      ],
+      "resource": "Glücksgriff 1/Mission: wiederhole einen d20-Wurf.",
+      "count": 1
+    },
+    {
+      "id": "hero-bard",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Bard",
+      "subtitle": "Level 4 - Support, Kontrolle, Heilung",
+      "art": "../assets/generated/hero-bard.png",
+      "stats": ["AC 14", "HP 31", "Speed 6 Felder", "Prof +2", "Cha +3", "Spell DC 13", "Spell Attack +5"],
+      "rules": [
+        "Rapier: +5, 1d8+3 Stich, 1 Feld.",
+        "Zauberplätze: 4x Grad 1, 3x Grad 2.",
+        "Bardic Inspiration: 4/Mission, Bonus Action, Verbündeter +1d6 auf Angriff, Check oder Save.",
+        "Jack of All Trades: +1 auf Checks ohne passenden Bonus."
+      ],
+      "resource": "Inspiration d6: 4 Marker.",
+      "count": 1
+    },
+    {
+      "id": "hero-fighter",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Fighter",
+      "subtitle": "Level 4 - Frontline, Schutz, verlässlicher Schaden",
+      "art": "../assets/generated/hero-fighter.png",
+      "stats": ["AC 18", "HP 40", "Speed 6 Felder", "Prof +2", "Str +4"],
+      "rules": [
+        "Langschwert: +6, 1d8+4 Hieb, 1 Feld.",
+        "Langbogen: +4, 1d8+2 Stich, 20 Felder.",
+        "Second Wind: Bonus Action, 1/Mission, heile 1d10+4 HP.",
+        "Action Surge: 1/Mission, sofort +2 AP in deinem Zug."
+      ],
+      "resource": "Second Wind 1, Action Surge 1.",
+      "count": 1
+    },
+    {
+      "id": "hero-wizard",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Wizard",
+      "subtitle": "Level 4 - Kontrolle, Reichweite, Risiko",
+      "art": "../assets/generated/hero-wizard.png",
+      "stats": ["AC 12", "HP 26", "Speed 6 Felder", "Prof +2", "Int +4", "Spell DC 14", "Spell Attack +6"],
+      "rules": [
+        "Zauberplätze: 4x Grad 1, 3x Grad 2.",
+        "Cantrips kosten keinen Zauberplatz.",
+        "Concentration: nur 1 Konzentrationszauber gleichzeitig.",
+        "Arcane Recovery: nach sicherem Raum 1 verbrauchter Grad-1-Zauberplatz zurück."
+      ],
+      "resource": "Shield als Reaktion, wenn die Karte bereitliegt.",
+      "count": 1
+    },
+    {
+      "id": "hero-druid",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Druid",
+      "subtitle": "Level 4 - Naturmagie, Heilung, Formwechsel",
+      "art": "../assets/generated/hero-druid.png",
+      "stats": ["AC 16", "HP 35", "Speed 6 Felder", "Prof +2", "Wis +4", "Spell DC 14", "Spell Attack +6"],
+      "rules": [
+        "Zauberplätze: 4x Grad 1, 3x Grad 2.",
+        "Shillelagh: Stab wird +6, 1d8+4.",
+        "Wild Shape: 2/Mission, Aktion, erhalte 18 temporäre HP und Klauenangriff.",
+        "Concentration: nur 1 Konzentrationszauber gleichzeitig."
+      ],
+      "resource": "Wild Shape 2 Marker.",
+      "count": 1
+    },
+    {
+      "id": "hero-barbarian",
+      "deck": "Helden",
+      "type": "Heldenkarte",
+      "title": "Barbarian",
+      "subtitle": "Level 4 - Druck, Überleben, Nahkampf",
+      "art": "../assets/generated/hero-barbarian.png",
+      "stats": ["AC 15", "HP 45", "Speed 7 Felder", "Prof +2", "Str +4"],
+      "rules": [
+        "Greataxe: +6, 1d12+4 Hieb, 1 Feld.",
+        "Rage: Bonus Action, 3/Mission, +2 Schaden mit Str-Angriffen.",
+        "Während Rage: halber Schaden durch Hieb, Stich und Wucht.",
+        "Reckless Attack: vor Angriff ansagen, du hast Vorteil; Angriffe gegen dich haben bis zu deinem nächsten Zug Vorteil."
+      ],
+      "resource": "Rage 3 Marker.",
+      "count": 1
+    },
+
+    {
+      "id": "basic-attack",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Angriff",
+      "subtitle": "2 AP",
+      "rules": ["Nutze einen Waffenangriff deiner Heldenkarte oder eine passende Klassenkarte.", "Würfle d20 + Attack Bonus gegen AC."],
+      "tags": ["Aktion", "Angriff"],
+      "count": 6
+    },
+    {
+      "id": "basic-cast",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Zauber wirken",
+      "subtitle": "2 AP",
+      "rules": ["Spiele eine Zauberkarte und bezahle den angegebenen Zauberplatz.", "Cantrips brauchen keinen Zauberplatz."],
+      "tags": ["Aktion", "Zauber"],
+      "count": 3
+    },
+    {
+      "id": "basic-sprint",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Sprint",
+      "subtitle": "2 AP",
+      "rules": ["Bewege dich bis zu 6 Felder zusätzlich.", "Schwieriges Gelände kostet doppelt, außer eine Karte sagt etwas anderes."],
+      "tags": ["Aktion", "Bewegung"],
+      "count": 4
+    },
+    {
+      "id": "basic-disengage",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Lösen",
+      "subtitle": "2 AP",
+      "rules": ["Bis zum Ende deines Zuges lösen deine Bewegungen keine Gelegenheitsangriffe aus."],
+      "tags": ["Aktion", "Sicherheit"],
+      "count": 4
+    },
+    {
+      "id": "basic-dodge",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Ausweichen",
+      "subtitle": "2 AP",
+      "rules": ["Bis zu deinem nächsten Zug haben Angriffe gegen dich Nachteil, solange du nicht bewegungsunfähig bist.", "Du hast Vorteil auf Dex Saves."],
+      "tags": ["Aktion", "Verteidigung"],
+      "count": 4
+    },
+    {
+      "id": "basic-help",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Helfen",
+      "subtitle": "2 AP",
+      "rules": ["Ein Verbündeter in 1 Feld erhält Vorteil auf seinen nächsten Check oder Angriff gegen ein Ziel in deiner Reichweite."],
+      "tags": ["Aktion", "Team"],
+      "count": 4
+    },
+    {
+      "id": "basic-search",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Suchen",
+      "subtitle": "2 AP",
+      "rules": ["Würfle Investigation, Perception oder passende Magie gegen die DC der Raumkarte.", "Bei Erfolg darf die Gruppe Falle, Hinweis oder Schwäche kennen, bevor sie auslöst."],
+      "tags": ["Aktion", "Check"],
+      "count": 4
+    },
+    {
+      "id": "basic-stabilize",
+      "deck": "Basisaktionen",
+      "type": "Basisaktion",
+      "title": "Stabilisieren",
+      "subtitle": "2 AP",
+      "rules": ["Bei einem Helden auf 0 HP in 1 Feld: DC 10 Medicine oder passender Check.", "Bei Erfolg ist die Person stabil und macht keine Death Saves mehr."],
+      "tags": ["Aktion", "Rettung"],
+      "count": 3
+    },
+
+    {
+      "id": "rogue-sneak",
+      "deck": "Klassenkarten",
+      "type": "Rogue",
+      "title": "Sneak Attack",
+      "subtitle": "1x pro Zug",
+      "rules": ["Wenn du Vorteil hast oder ein Verbündeter in 1 Feld am Ziel steht: +2d6 Schaden.", "Nur mit Finesse- oder Fernkampfwaffe."],
+      "tags": ["Schaden"],
+      "count": 1
+    },
+    {
+      "id": "rogue-cunning",
+      "deck": "Klassenkarten",
+      "type": "Rogue",
+      "title": "Cunning Action",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Wähle Sprint, Lösen oder Verstecken.", "Zählt als deine einzige Bonus Action in diesem Zug."],
+      "tags": ["Bonus", "Bewegung"],
+      "count": 1
+    },
+    {
+      "id": "rogue-hide",
+      "deck": "Klassenkarten",
+      "type": "Rogue",
+      "title": "Verstecken",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["DC 14 Stealth, wenn Deckung oder Dunkelheit plausibel ist.", "Bei Erfolg bekommst du Vorteil auf deinen nächsten Angriff."],
+      "tags": ["Bonus", "Check"],
+      "count": 1
+    },
+    {
+      "id": "rogue-lucky",
+      "deck": "Klassenkarten",
+      "type": "Rogue",
+      "title": "Glücksgriff",
+      "subtitle": "1/Mission",
+      "rules": ["Wiederhole einen d20-Wurf von dir.", "Du musst das neue Ergebnis nehmen."],
+      "tags": ["Ressource"],
+      "count": 1
+    },
+
+    {
+      "id": "bard-inspiration",
+      "deck": "Klassenkarten",
+      "type": "Bard",
+      "title": "Bardic Inspiration",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Verbündeter in 12 Feldern erhält 1d6.", "Er darf den Würfel auf Angriff, Check oder Save addieren."],
+      "tags": ["Bonus", "Support"],
+      "count": 1
+    },
+    {
+      "id": "bard-vicious",
+      "deck": "Klassenkarten",
+      "type": "Bard",
+      "title": "Vicious Mockery",
+      "subtitle": "Cantrip - 2 AP",
+      "rules": ["Ziel in 12 Feldern macht Wis Save DC 13.", "Bei Fehlschlag: 1d4 psychic, nächster Angriff des Ziels hat Nachteil."],
+      "tags": ["Zauber", "Cantrip"],
+      "count": 1
+    },
+    {
+      "id": "bard-healing-word",
+      "deck": "Klassenkarten",
+      "type": "Bard",
+      "title": "Healing Word",
+      "subtitle": "Grad 1 - Bonus Action - 1 AP",
+      "rules": ["Verbündeter in 12 Feldern heilt 1d4+3 HP.", "Kann einen Helden von 0 HP zurückbringen."],
+      "tags": ["Zauber", "Heilung", "Bonus"],
+      "count": 1
+    },
+    {
+      "id": "bard-dissonant",
+      "deck": "Klassenkarten",
+      "type": "Bard",
+      "title": "Dissonant Whispers",
+      "subtitle": "Grad 1 - 2 AP",
+      "rules": ["Ziel in 12 Feldern macht Wis Save DC 13.", "Fehlschlag: 3d6 psychic und Ziel bewegt sich 3 Felder weg, wenn möglich. Erfolg: halber Schaden."],
+      "tags": ["Zauber", "Kontrolle"],
+      "count": 1
+    },
+    {
+      "id": "bard-shatter",
+      "deck": "Klassenkarten",
+      "type": "Bard",
+      "title": "Shatter",
+      "subtitle": "Grad 2 - 2 AP",
+      "rules": ["2-Felder-Radius in 12 Feldern. Con Save DC 13.", "Fehlschlag: 3d8 thunder. Erfolg: halber Schaden."],
+      "tags": ["Zauber", "Fläche"],
+      "count": 1
+    },
+
+    {
+      "id": "fighter-second-wind",
+      "deck": "Klassenkarten",
+      "type": "Fighter",
+      "title": "Second Wind",
+      "subtitle": "Bonus Action - 1 AP - 1/Mission",
+      "rules": ["Heile 1d10+4 HP.", "Zählt als deine einzige Bonus Action."],
+      "tags": ["Bonus", "Heilung"],
+      "count": 1
+    },
+    {
+      "id": "fighter-action-surge",
+      "deck": "Klassenkarten",
+      "type": "Fighter",
+      "title": "Action Surge",
+      "subtitle": "0 AP - 1/Mission",
+      "rules": ["Erhalte sofort +2 AP in deinem aktuellen Zug.", "Du darfst dadurch eine zusätzliche Aktion spielen."],
+      "tags": ["Ressource"],
+      "count": 1
+    },
+    {
+      "id": "fighter-shield-bash",
+      "deck": "Klassenkarten",
+      "type": "Fighter",
+      "title": "Schildstoß",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Ziel in 1 Feld macht Str Save DC 14.", "Bei Fehlschlag: Ziel wird 1 Feld geschoben oder fällt prone."],
+      "tags": ["Bonus", "Kontrolle"],
+      "count": 1
+    },
+    {
+      "id": "fighter-protect",
+      "deck": "Klassenkarten",
+      "type": "Fighter",
+      "title": "Dazwischen",
+      "subtitle": "Reaktion - 0 AP",
+      "rules": ["Wenn ein Verbündeter in 1 Feld getroffen wird, reduziere den Schaden um 1d8+2.", "1 Reaktion pro Runde."],
+      "tags": ["Reaktion", "Schutz"],
+      "count": 1
+    },
+
+    {
+      "id": "wizard-fire-bolt",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Fire Bolt",
+      "subtitle": "Cantrip - 2 AP",
+      "rules": ["Spell Attack +6, Reichweite 24 Felder.", "Treffer: 1d10 fire."],
+      "tags": ["Zauber", "Cantrip"],
+      "count": 1
+    },
+    {
+      "id": "wizard-magic-missile",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Magic Missile",
+      "subtitle": "Grad 1 - 2 AP",
+      "rules": ["3 Geschosse treffen automatisch Ziele in 24 Feldern.", "Jedes Geschoss: 1d4+1 force. Du darfst sie aufteilen."],
+      "tags": ["Zauber", "Treffsicher"],
+      "count": 1
+    },
+    {
+      "id": "wizard-shield",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Shield",
+      "subtitle": "Grad 1 - Reaktion",
+      "rules": ["Wenn du getroffen würdest: +5 AC bis zu deinem nächsten Zug.", "Kann den auslösenden Treffer verhindern."],
+      "tags": ["Zauber", "Reaktion"],
+      "count": 1
+    },
+    {
+      "id": "wizard-misty-step",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Misty Step",
+      "subtitle": "Grad 2 - Bonus Action - 1 AP",
+      "rules": ["Teleportiere dich bis zu 6 Felder an eine sichtbare freie Stelle.", "Zählt als deine einzige Bonus Action."],
+      "tags": ["Zauber", "Bonus", "Bewegung"],
+      "count": 1
+    },
+    {
+      "id": "wizard-web",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Web",
+      "subtitle": "Grad 2 - 2 AP - Konzentration",
+      "rules": ["3x3-Felder-Zone in 12 Feldern.", "Kreaturen im Bereich machen Dex Save DC 14 oder sind restrained. Befreiung: Aktion, DC 14 Str."],
+      "tags": ["Zauber", "Kontrolle"],
+      "count": 1
+    },
+    {
+      "id": "wizard-thunderwave",
+      "deck": "Klassenkarten",
+      "type": "Wizard",
+      "title": "Thunderwave",
+      "subtitle": "Grad 1 - 2 AP",
+      "rules": ["Alle Ziele angrenzend machen Con Save DC 14.", "Fehlschlag: 2d8 thunder und 2 Felder weg. Erfolg: halber Schaden, kein Schub."],
+      "tags": ["Zauber", "Fläche"],
+      "count": 1
+    },
+
+    {
+      "id": "druid-produce-flame",
+      "deck": "Klassenkarten",
+      "type": "Druid",
+      "title": "Produce Flame",
+      "subtitle": "Cantrip - 2 AP",
+      "rules": ["Spell Attack +6, Reichweite 6 Felder.", "Treffer: 1d8 fire. Kann auch Licht geben."],
+      "tags": ["Zauber", "Cantrip"],
+      "count": 1
+    },
+    {
+      "id": "druid-cure-wounds",
+      "deck": "Klassenkarten",
+      "type": "Druid",
+      "title": "Cure Wounds",
+      "subtitle": "Grad 1 - 2 AP",
+      "rules": ["Berühre einen Verbündeten.", "Er heilt 1d8+4 HP."],
+      "tags": ["Zauber", "Heilung"],
+      "count": 1
+    },
+    {
+      "id": "druid-entangle",
+      "deck": "Klassenkarten",
+      "type": "Druid",
+      "title": "Entangle",
+      "subtitle": "Grad 1 - 2 AP - Konzentration",
+      "rules": ["3x3-Felder-Zone in 12 Feldern.", "Str Save DC 14 oder restrained. Bereich wird schwieriges Gelände."],
+      "tags": ["Zauber", "Kontrolle"],
+      "count": 1
+    },
+    {
+      "id": "druid-moonbeam",
+      "deck": "Klassenkarten",
+      "type": "Druid",
+      "title": "Moonbeam",
+      "subtitle": "Grad 2 - 2 AP - Konzentration",
+      "rules": ["1-Feld-Säule in 12 Feldern. Con Save DC 14.", "Fehlschlag: 2d10 radiant. Als Aktion darfst du die Säule 6 Felder bewegen."],
+      "tags": ["Zauber", "Schaden"],
+      "count": 1
+    },
+    {
+      "id": "druid-wild-shape",
+      "deck": "Klassenkarten",
+      "type": "Druid",
+      "title": "Wild Shape",
+      "subtitle": "2 AP - 2/Mission",
+      "rules": ["Erhalte 18 temporäre HP, AC 13, Speed 6.", "Klauen: +5, 1d8+3 Hieb. Währenddessen keine Zauber."],
+      "tags": ["Ressource", "Form"],
+      "count": 1
+    },
+
+    {
+      "id": "barbarian-rage",
+      "deck": "Klassenkarten",
+      "type": "Barbarian",
+      "title": "Rage",
+      "subtitle": "Bonus Action - 1 AP - 3/Mission",
+      "rules": ["Für 1 Minute: +2 Schaden mit Str-Angriffen.", "Du nimmst halben Hieb-, Stich- und Wuchtschaden."],
+      "tags": ["Bonus", "Ressource"],
+      "count": 1
+    },
+    {
+      "id": "barbarian-reckless",
+      "deck": "Klassenkarten",
+      "type": "Barbarian",
+      "title": "Reckless Attack",
+      "subtitle": "0 AP",
+      "rules": ["Vor deinem ersten Str-Angriff ansagen.", "Du hast Vorteil auf Str-Angriffe; Angriffe gegen dich haben bis zu deinem nächsten Zug Vorteil."],
+      "tags": ["Risiko", "Schaden"],
+      "count": 1
+    },
+    {
+      "id": "barbarian-danger-sense",
+      "deck": "Klassenkarten",
+      "type": "Barbarian",
+      "title": "Danger Sense",
+      "subtitle": "passiv",
+      "rules": ["Vorteil auf Dex Saves gegen sichtbare Fallen, Zauber oder Effekte.", "Gilt nicht, wenn du blind, taub oder bewegungsunfähig bist."],
+      "tags": ["Passiv"],
+      "count": 1
+    },
+    {
+      "id": "barbarian-brutal-sprint",
+      "deck": "Klassenkarten",
+      "type": "Barbarian",
+      "title": "Brutaler Sprint",
+      "subtitle": "2 AP",
+      "rules": ["Bewege dich bis zu 6 Felder in gerader Linie.", "Wenn du angrenzend zu einem Ziel endest, darfst du es DC 14 Str Save schubsen."],
+      "tags": ["Bewegung", "Kontrolle"],
+      "count": 1
+    },
+
+    {
+      "id": "scenario-bank",
+      "deck": "Szenarien",
+      "type": "Mission",
+      "title": "Der Tresor der Mitternachtsbank",
+      "subtitle": "Heist, Erdbeben, Artefakt",
+      "art": "../assets/generated/scenario-midnight-bank.png",
+      "rules": ["Ziel: Artefakt sichern und Bossraum überleben.", "Nach dem dritten Raum zieht der DM jede Runde 1 Chaoskarte.", "Alternative Win: Artefakt aufnehmen und 2 Runden am Ausgang halten."],
+      "count": 1
+    },
+    {
+      "id": "scenario-egg",
+      "deck": "Szenarien",
+      "type": "Mission",
+      "title": "Das Ei im Kristallhort",
+      "subtitle": "Rettung, Ritual, Instabilität",
+      "art": "../assets/generated/scenario-dragon-egg.png",
+      "rules": ["Ziel: Ei aus dem Ritualkreis holen.", "Jede ausgelöste Falle erhöht Instabilität um 1.", "Bei Instabilität 3 bekommt der Boss +1d6 auf seinen nächsten Angriff."],
+      "count": 1
+    },
+    {
+      "id": "scenario-clock",
+      "deck": "Szenarien",
+      "type": "Mission",
+      "title": "Die Glocke unter der Akademie",
+      "subtitle": "Uhrwerk, Alarm, Skill-Challenge",
+      "art": "../assets/generated/scenario-clock-bell.png",
+      "rules": ["Ziel: Boss besiegen oder 3 erfolgreiche DC-14-Checks am Uhrwerk schaffen.", "Im Bossraum steigt am Rundenende der Glockenzähler.", "Bei 4 löst der DM sofort eine Chaoskarte aus."],
+      "count": 1
+    },
+    {
+      "id": "scenario-pass",
+      "deck": "Szenarien",
+      "type": "Mission",
+      "title": "Der Schattenpass",
+      "subtitle": "Escort, Hinterhalt, Bewegung",
+      "art": "../assets/generated/scenario-shadow-pass.png",
+      "rules": ["Ziel: Boss besiegen oder Wagen 6 Felder über die Ziellinie bringen.", "Bei jeder zweiten Raumkarte rücken Verfolger näher.", "Wenn sie einholen, startet der nächste Kampf mit 2 Helfern."],
+      "count": 1
+    },
+
+    {
+      "id": "goal-bank-rogue",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Rogue",
+      "subtitle": "Klassenziel",
+      "rules": ["Öffne einen Sicherheitsmechanismus ohne Alarm.", "Belohnung: 1x Vorteil auf Stealth, Thieves' Tools oder ersten Angriff im Bossraum."],
+      "count": 1
+    },
+    {
+      "id": "goal-bank-bard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Bard",
+      "subtitle": "Klassenziel",
+      "rules": ["Überzeuge eine panische Person, euch zu helfen.", "Belohnung: Die Gruppe erhält 1 Hinweis oder 1 Lootkarte nach DM-Wahl."],
+      "count": 1
+    },
+    {
+      "id": "goal-bank-fighter",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Fighter",
+      "subtitle": "Klassenziel",
+      "rules": ["Halte eine Engstelle eine Runde lang allein.", "Belohnung: Reduziere im Bossraum einmal Schaden gegen die Gruppe um 1d10."],
+      "count": 1
+    },
+    {
+      "id": "goal-bank-wizard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Wizard",
+      "subtitle": "Klassenziel",
+      "rules": ["Entschlüssle ein Tresorsiegel.", "Belohnung: Boss verliert 8 HP oder eine Boss-Tür startet offen."],
+      "count": 1
+    },
+    {
+      "id": "goal-bank-druid",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Druid",
+      "subtitle": "Klassenziel",
+      "rules": ["Stabilisiere einen rissigen Steinbogen mit Naturmagie.", "Belohnung: Ein Einsturz- oder Erdbeben-Effekt wird einmal halbiert."],
+      "count": 1
+    },
+    {
+      "id": "goal-bank-barbarian",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Bank · Barbarian",
+      "subtitle": "Klassenziel",
+      "rules": ["Breche eine blockierte Tür auf, ohne die Gruppe zu verletzen.", "Belohnung: Im nächsten Raum startet die Gruppe 3 Felder weiter vorn."],
+      "count": 1
+    },
+
+    {
+      "id": "goal-egg-rogue",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Rogue",
+      "subtitle": "Klassenziel",
+      "rules": ["Finde einen sicheren Pfad durch die Kristallsplitter.", "Belohnung: Ein Verbündeter ignoriert einmal schwieriges Gelände."],
+      "count": 1
+    },
+    {
+      "id": "goal-egg-bard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Bard",
+      "subtitle": "Klassenziel",
+      "rules": ["Beruhige das vibrierende Ei mit Klang oder Worten.", "Belohnung: Senke Instabilität um 1 oder verhindere den nächsten Instabilitätsanstieg."],
+      "count": 1
+    },
+    {
+      "id": "goal-egg-fighter",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Fighter",
+      "subtitle": "Klassenziel",
+      "rules": ["Blocke einen Treffer gegen den Träger des Eis.", "Belohnung: Der Träger erhält 1d8 temporäre HP."],
+      "count": 1
+    },
+    {
+      "id": "goal-egg-wizard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Wizard",
+      "subtitle": "Klassenziel",
+      "rules": ["Unterbrich ein arkanes Ritual.", "Belohnung: Der Boss verliert seine erste Reaktion oder seinen ersten Atemstoß."],
+      "count": 1
+    },
+    {
+      "id": "goal-egg-druid",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Druid",
+      "subtitle": "Klassenziel",
+      "rules": ["Erkenne, was das Ei braucht, ohne es zu beschädigen.", "Belohnung: Ein Heilzauber heilt +1d6 oder ein Save gegen Instabilität hat Vorteil."],
+      "count": 1
+    },
+    {
+      "id": "goal-egg-barbarian",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Ei · Barbarian",
+      "subtitle": "Klassenziel",
+      "rules": ["Trage das Ei oder einen Felsblock trotz Gefahr weiter.", "Belohnung: Einmal 6 Felder bewegen, ohne AP für Bewegung zu zahlen."],
+      "count": 1
+    },
+
+    {
+      "id": "goal-clock-rogue",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Rogue",
+      "subtitle": "Klassenziel",
+      "rules": ["Deaktiviere ein Zahnrad, bevor es jemanden trifft.", "Belohnung: Ein Uhrwerk- oder Fallenwurf hat Nachteil."],
+      "count": 1
+    },
+    {
+      "id": "goal-clock-bard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Bard",
+      "subtitle": "Klassenziel",
+      "rules": ["Halte die Gruppe trotz Lärm koordiniert.", "Belohnung: Zwei Helden dürfen sofort je 3 Felder repositionieren."],
+      "count": 1
+    },
+    {
+      "id": "goal-clock-fighter",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Fighter",
+      "subtitle": "Klassenziel",
+      "rules": ["Schütze die Person, die am Uhrwerk arbeitet.", "Belohnung: Ein Skill-Check am Uhrwerk bekommt +1d6."],
+      "count": 1
+    },
+    {
+      "id": "goal-clock-wizard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Wizard",
+      "subtitle": "Klassenziel",
+      "rules": ["Erkenne die richtige Reihenfolge der Runen.", "Belohnung: Ein erforderlicher Uhrwerk-Erfolg zählt doppelt."],
+      "count": 1
+    },
+    {
+      "id": "goal-clock-druid",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Druid",
+      "subtitle": "Klassenziel",
+      "rules": ["Spüre den unnatürlichen Rhythmus der Maschine.", "Belohnung: Der Glockenzähler steigt einmal nicht."],
+      "count": 1
+    },
+    {
+      "id": "goal-clock-barbarian",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Glocke · Barbarian",
+      "subtitle": "Klassenziel",
+      "rules": ["Stoppe ein drehendes Rad mit roher Kraft.", "Belohnung: Boss oder Maschine verliert eine Aktion im nächsten Zug."],
+      "count": 1
+    },
+
+    {
+      "id": "goal-pass-rogue",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Rogue",
+      "subtitle": "Klassenziel",
+      "rules": ["Kundschafte eine Gefahr aus, bevor die Gruppe eintritt.", "Belohnung: Der nächste Raum darf vor Betreten angeschaut werden."],
+      "count": 1
+    },
+    {
+      "id": "goal-pass-bard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Bard",
+      "subtitle": "Klassenziel",
+      "rules": ["Halte verängstigte Begleiter ruhig.", "Belohnung: Entferne 1 Druckmarker oder verhindere Verfolgerfortschritt."],
+      "count": 1
+    },
+    {
+      "id": "goal-pass-fighter",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Fighter",
+      "subtitle": "Klassenziel",
+      "rules": ["Fange einen Angriff gegen den Wagen ab.", "Belohnung: Der Wagen bewegt sich sofort 3 Felder oder ignoriert einen Schaden."],
+      "count": 1
+    },
+    {
+      "id": "goal-pass-wizard",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Wizard",
+      "subtitle": "Klassenziel",
+      "rules": ["Schaffe Licht oder Schutz gegen Schattenmagie.", "Belohnung: Im nächsten Kampf haben Gegner in Runde 1 Nachteil auf Fernangriffe."],
+      "count": 1
+    },
+    {
+      "id": "goal-pass-druid",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Druid",
+      "subtitle": "Klassenziel",
+      "rules": ["Finde einen stabilen Weg durch den Pass.", "Belohnung: Gruppe überspringt eine Einsturz- oder Gelände-Komplikation."],
+      "count": 1
+    },
+    {
+      "id": "goal-pass-barbarian",
+      "deck": "Ziele",
+      "type": "Zielkarte",
+      "title": "Pass · Barbarian",
+      "subtitle": "Klassenziel",
+      "rules": ["Räume ein Hindernis unter Zeitdruck weg.", "Belohnung: Alle Helden erhalten im nächsten Zug +1 AP für Bewegung."],
+      "count": 1
+    },
+
+    {
+      "id": "boss-vault-warden",
+      "deck": "Boss",
+      "type": "Bosskarte",
+      "title": "Tresorwächter",
+      "subtitle": "AC 18 - HP 42",
+      "rules": ["Schlag: +6, 1d10+3 Wucht.", "Arkanes Schloss: 1x/Runde wird eine Tür oder Truhe DC 14.", "Bei halben HP: alle im Raum Dex Save DC 13 oder 2d6 Wucht durch Trümmer."],
+      "count": 1
+    },
+    {
+      "id": "boss-hort-keeper",
+      "deck": "Boss",
+      "type": "Bosskarte",
+      "title": "Horthüter",
+      "subtitle": "AC 17 - HP 48",
+      "rules": ["Biss: +6, 1d10+4 Stich.", "Atemstoß: Kegel 3 Felder, Dex Save DC 13, 3d6 elementar, halber Schaden bei Erfolg.", "Recharge: Bei 5-6 am Rundenstart ist Atemstoß zurück."],
+      "count": 1
+    },
+    {
+      "id": "boss-clockwork",
+      "deck": "Boss",
+      "type": "Bosskarte",
+      "title": "Uhrwerk-Verwalter",
+      "subtitle": "AC 15 - HP 40",
+      "rules": ["Zahnradklinge: +5, 1d8+3 Hieb.", "Taktwechsel: Am Rundenstart wählt der DM ein Feldband; dort Dex Save DC 14 oder 2d6 Wucht.", "Kann durch 3 erfolgreiche DC-14-Checks deaktiviert werden."],
+      "count": 1
+    },
+    {
+      "id": "boss-shadow-captain",
+      "deck": "Boss",
+      "type": "Bosskarte",
+      "title": "Schattenhauptmann",
+      "subtitle": "AC 16 - HP 44",
+      "rules": ["Klinge: +6, 1d8+4 Stich.", "Schattenritt: Bonus Action, bewegt sich 3 Felder ohne Gelegenheitsangriff.", "Bei halben HP ruft er 2 Helfer mit AC 13, HP 8, Angriff +4, 1d6+2."],
+      "count": 1
+    },
+
+    {
+      "id": "room-combat-patrol",
+      "deck": "Raumkarten",
+      "type": "Kampf",
+      "title": "Patrouille",
+      "subtitle": "2 kleine Gegner",
+      "rules": ["2 Gegner: AC 13, HP 10, Angriff +4, 1d6+2.", "Wenn die Gruppe den Raum leise betritt: DC 13 Stealth für Überraschung."],
+      "count": 2
+    },
+    {
+      "id": "room-combat-elite",
+      "deck": "Raumkarten",
+      "type": "Kampf",
+      "title": "Elitewache",
+      "subtitle": "1 starker Gegner",
+      "rules": ["1 Gegner: AC 15, HP 22, Angriff +5, 1d8+3.", "Bei halben HP zieht der DM 1 Chaoskarte, ignoriert aber Boss-Helfer-Effekte."],
+      "count": 2
+    },
+    {
+      "id": "room-combat-ranged",
+      "deck": "Raumkarten",
+      "type": "Kampf",
+      "title": "Schützenposition",
+      "subtitle": "Deckung zählt",
+      "rules": ["2 Gegner hinter Deckung: AC 14, HP 8, Angriff +4, 1d6+2 auf 12 Felder.", "Wer Deckung nutzt, erhält +2 AC gegen Fernkampf."],
+      "count": 2
+    },
+    {
+      "id": "room-trap-pressure",
+      "deck": "Raumkarten",
+      "type": "Falle",
+      "title": "Druckplatte",
+      "subtitle": "DC 14",
+      "rules": ["Erkennen: DC 14 Perception oder Investigation.", "Auslösen: Dex Save DC 14 oder 2d6 Schaden und 1 Feld zurück."],
+      "count": 2
+    },
+    {
+      "id": "room-trap-alarm",
+      "deck": "Raumkarten",
+      "type": "Falle",
+      "title": "Arkaner Alarm",
+      "subtitle": "DC 13",
+      "rules": ["Entschärfen: DC 13 Arcana oder Thieves' Tools.", "Fehlschlag: Ziehe 1 Chaoskarte; wenn sie Kampf verstärkt, gilt sie sofort."],
+      "count": 2
+    },
+    {
+      "id": "room-trap-collapse",
+      "deck": "Raumkarten",
+      "type": "Falle",
+      "title": "Einsturzstelle",
+      "subtitle": "Entscheidung",
+      "rules": ["Schnell durch: Dex Save DC 13 oder 2d6 Schaden.", "Sicher räumen: 2 erfolgreiche DC-12-Checks, kostet 1 Runde."],
+      "count": 2
+    },
+    {
+      "id": "room-hint-weakness",
+      "deck": "Raumkarten",
+      "type": "Hinweis",
+      "title": "Boss-Schwäche",
+      "subtitle": "DC 12",
+      "rules": ["Bei DC 12 Arcana, History, Nature oder Investigation erkennt die Gruppe eine Boss-Schwäche.", "Ein Held erhält im Bossraum 1x Vorteil gegen den Boss."],
+      "count": 2
+    },
+    {
+      "id": "room-hint-shortcut",
+      "deck": "Raumkarten",
+      "type": "Hinweis",
+      "title": "Abkürzung",
+      "subtitle": "Map-Vorteil",
+      "rules": ["Die Gruppe darf einen noch verdeckten Raum überspringen oder zwei angrenzende Raumkarten vertauschen.", "DM erklärt den Fund passend zum Szenario."],
+      "count": 2
+    },
+    {
+      "id": "room-loot-cache",
+      "deck": "Raumkarten",
+      "type": "Loot",
+      "title": "Vorratskiste",
+      "subtitle": "1 Lootkarte",
+      "rules": ["Ziehe 1 Lootkarte.", "Wenn vorher gesucht wurde und DC 12 gelingt: ziehe 2, behalte 1."],
+      "count": 2
+    },
+    {
+      "id": "room-loot-rest",
+      "deck": "Raumkarten",
+      "type": "Loot",
+      "title": "Sicherer Winkel",
+      "subtitle": "kurze Verschnaufpause",
+      "rules": ["Jeder Held darf 1 Hit Die als 1d8+Con-Bonus würfeln oder 1 verbrauchten Grad-1-Zauberplatz zurückholen.", "Nur 1x pro Mission nutzen."],
+      "count": 2
+    },
+    {
+      "id": "room-social",
+      "deck": "Raumkarten",
+      "type": "Story",
+      "title": "Unklare Begegnung",
+      "subtitle": "reden oder riskieren",
+      "rules": ["DC 13 Persuasion, Deception, Intimidation oder Insight.", "Erfolg: kein Kampf und 1 Hinweis. Fehlschlag: Patrouille erscheint."],
+      "count": 2
+    },
+    {
+      "id": "room-puzzle",
+      "deck": "Raumkarten",
+      "type": "Puzzle",
+      "title": "Drei Siegel",
+      "subtitle": "Skill-Challenge",
+      "rules": ["3 Erfolge vor 2 Fehlschlägen, DC 12 bis 14.", "Erfolg: Boss startet mit -8 HP. Fehlschlag: Ziehe 1 Chaoskarte."],
+      "count": 2
+    },
+
+    {
+      "id": "loot-healing",
+      "deck": "Loot",
+      "type": "Item",
+      "title": "Heiltrank",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Trinke oder gib angrenzend weiter.", "Heile 2d4+2 HP."],
+      "count": 4
+    },
+    {
+      "id": "loot-focus",
+      "deck": "Loot",
+      "type": "Item",
+      "title": "Fokus-Splitter",
+      "subtitle": "einmalig",
+      "rules": ["Ein Caster erhält 1 verbrauchten Grad-1-Zauberplatz zurück.", "Oder: +2 auf einen Spell Attack."],
+      "count": 2
+    },
+    {
+      "id": "loot-smoke",
+      "deck": "Loot",
+      "type": "Item",
+      "title": "Rauchkapsel",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["2x2-Felder-Zone bis Rundenende stark verschleiert.", "Gut für Rückzug, Verstecken oder Heist-Momente."],
+      "count": 2
+    },
+    {
+      "id": "loot-sharpness",
+      "deck": "Loot",
+      "type": "Item",
+      "title": "Schärfungsöl",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Nächster Waffenangriff eines Helden verursacht +1d6 Schaden.", "Muss vor dem Angriff angesagt werden."],
+      "count": 2
+    },
+    {
+      "id": "loot-ward",
+      "deck": "Loot",
+      "type": "Item",
+      "title": "Schutzrune",
+      "subtitle": "Reaktion",
+      "rules": ["Reduziere Schaden gegen dich oder einen Verbündeten in 3 Feldern um 1d10.", "Einmalig."],
+      "count": 2
+    },
+
+    {
+      "id": "chaos-earthquake",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Der Boden bricht",
+      "subtitle": "sofort",
+      "rules": ["Alle im aktuellen Raum: Dex Save DC 13.", "Fehlschlag: 1d6 Schaden und prone. Erfolg: nur 1 Feld verschoben."],
+      "count": 2
+    },
+    {
+      "id": "chaos-extra-loot",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Unerwarteter Fund",
+      "subtitle": "Vorteil",
+      "rules": ["Im nächsten Raum mit Kampf oder Falle liegt zusätzlicher Loot.", "Nach dem Raum 1 Lootkarte ziehen, wenn mindestens ein Held steht."],
+      "count": 2
+    },
+    {
+      "id": "chaos-boss-help",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Helfer im Bossraum",
+      "subtitle": "später",
+      "rules": ["Der Boss startet mit 2 Helfern: AC 13, HP 8, Angriff +4, 1d6+2.", "Wenn bereits Helfer da sind: Boss erhält stattdessen +8 HP."],
+      "count": 2
+    },
+    {
+      "id": "chaos-magic-surge",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Magischer Überschlag",
+      "subtitle": "diese Runde",
+      "rules": ["Der nächste Zauber verursacht +1d6 Schaden oder Heilung.", "Bei natürlicher 1 auf einem Zauberwurf nimmt der Caster 1d6 force."],
+      "count": 2
+    },
+    {
+      "id": "chaos-darkness",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Licht fällt aus",
+      "subtitle": "1 Runde",
+      "rules": ["Fernkampfangriffe über mehr als 6 Felder haben Nachteil.", "Ein Held kann mit Aktion DC 12 die Sicht stabilisieren."],
+      "count": 2
+    },
+    {
+      "id": "chaos-clock",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Zeitdruck",
+      "subtitle": "DM-Marker",
+      "rules": ["Lege 1 Druckmarker auf die Mission.", "Bei 3 Druckmarkern startet der Bossraum mit einer Komplikation nach DM-Wahl."],
+      "count": 2
+    },
+    {
+      "id": "chaos-switch",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Der Weg verändert sich",
+      "subtitle": "Map",
+      "rules": ["Tausche zwei noch verdeckte Raumkarten.", "Wenn nur eine verdeckt ist: sie wird sofort aufgedeckt, aber noch nicht ausgelöst."],
+      "count": 2
+    },
+    {
+      "id": "chaos-hero-moment",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Heldenmoment",
+      "subtitle": "Vorteil",
+      "rules": ["Ein Spieler beschreibt eine mutige Aktion.", "Wenn sie zur Szene passt, erhält er Vorteil oder +1d6 auf den Wurf."],
+      "count": 2
+    },
+    {
+      "id": "chaos-noise",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Zu laut",
+      "subtitle": "nächster Raum",
+      "rules": ["Stealth ist im nächsten Raum nicht möglich.", "Der erste Gegner handelt mit Vorteil auf Initiative."],
+      "count": 2
+    },
+    {
+      "id": "chaos-complication",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Nebenproblem",
+      "subtitle": "Story",
+      "rules": ["DM stellt eine sofortige Frage: Wen rettet ihr, was lasst ihr fallen, welchen Weg verliert ihr?", "Die Antwort erzeugt einen Vorteil und einen Nachteil."],
+      "count": 2
+    },
+    {
+      "id": "chaos-breath",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Durchatmen",
+      "subtitle": "Erleichterung",
+      "rules": ["Alle Helden erhalten 1d6 temporäre HP.", "Im Bossraum stattdessen: ein Held entfernt prone, restrained oder frightened."],
+      "count": 2
+    },
+    {
+      "id": "chaos-reinforced",
+      "deck": "Chaos",
+      "type": "Chaoskarte",
+      "title": "Verstärkte Gefahr",
+      "subtitle": "nächster Kampf",
+      "rules": ["Der nächste Kampfgegner erhält +2 AC bis er einmal getroffen wird.", "Wenn kein Kampf mehr kommt: Boss erhält +2 AC für Runde 1."],
+      "count": 2
+    }
+  ]
+}

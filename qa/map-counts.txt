@@ -1,0 +1,8 @@
+Project: Level-Up Speed DND
+Version: 0.1.0-event-prototype
+Scenario flow maps: 4
+Base flow maps: 1
+Tactical maps: 12
+Blank grids: 4
+Marker types: 16
+Marker count: 144

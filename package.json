@@ -1,0 +1,11 @@
+{
+  "name": "level-up-speed-dnd",
+  "version": "0.1.0-event-prototype",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build-print.mjs && node tools/build-maps.mjs && node tools/build-conference-guides.mjs",
+    "render:pdfs": "node tools/render-pdfs.mjs",
+    "audit": "node tools/audit.mjs"
+  }
+}

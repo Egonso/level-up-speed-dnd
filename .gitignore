@@ -1,0 +1,15 @@
+.DS_Store
+.imagegen-*
+.marker_*
+qa/*.png
+qa/*.jpg
+qa/**/*.png
+qa/**/*.jpg
+qa/maps-pdf-pages/
+qa/card-goals-pages/
+qa/card-pdf-pages/
+qa/guide-pdf-pages/
+assets/imagegen-cards/druid-wild-shape-v1-bad-title.png
+assets/imagegen-cards/barbarian-extra-after-marker.png
+assets/imagegen-cards/room-combat-patrol-v1-extra.png
+assets/imagegen-cards/goal-bank-barbarian-v1-mismatched-text.png

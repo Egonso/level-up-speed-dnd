@@ -1,0 +1,427 @@
+@page {
+  size: A4;
+  margin: 9mm;
+}
+
+:root {
+  --ink: #f5efe3;
+  --muted: #b8aa91;
+  --line: rgba(234, 191, 94, 0.42);
+  --gold: #d7a83e;
+  --dark: #101114;
+  --panel: #17191f;
+  --red: #9a332f;
+  --blue: #274d74;
+  --green: #2f6a4f;
+  --purple: #563d7f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: #0b0c0f;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  letter-spacing: 0;
+}
+
+.intro {
+  min-height: 270mm;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  page-break-after: always;
+}
+
+.intro > div {
+  width: min(150mm, 90vw);
+  border: 1px solid var(--line);
+  padding: 20mm;
+  background: linear-gradient(145deg, #111216, #1d2028);
+}
+
+.logo {
+  width: 28mm;
+  height: 28mm;
+  object-fit: contain;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+.intro h1 {
+  font-size: 30pt;
+  margin-top: 8mm;
+}
+
+.intro p {
+  color: var(--muted);
+  margin-top: 5mm;
+  font-size: 12pt;
+  line-height: 1.45;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 63mm);
+  grid-auto-rows: 88mm;
+  gap: 4mm;
+  align-items: start;
+  page-break-after: always;
+}
+
+.card {
+  width: 63mm;
+  height: 88mm;
+  overflow: hidden;
+  page-break-inside: avoid;
+  break-inside: avoid;
+  background: #111319;
+  border: 0.6mm solid var(--line);
+  position: relative;
+}
+
+.imagegen-card {
+  border: 0.45mm solid rgba(215, 168, 62, 0.55);
+  background: #050608;
+}
+
+.imagegen-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.card-inner {
+  height: 100%;
+  padding: 2.45mm;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35mm;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at top right, rgba(215, 168, 62, 0.13), transparent 40%),
+    var(--panel);
+}
+
+header {
+  min-height: 10.8mm;
+  border-bottom: 0.25mm solid rgba(215, 168, 62, 0.34);
+  padding-bottom: 1mm;
+}
+
+.deck {
+  color: var(--gold);
+  text-transform: uppercase;
+  font-size: 5pt;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 11.6pt;
+  line-height: 1.02;
+  margin-top: 0.55mm;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 6pt;
+  line-height: 1.15;
+  margin-top: 0.6mm;
+}
+
+.art {
+  height: 24mm;
+  border: 0.25mm solid rgba(215, 168, 62, 0.36);
+  background: #0c0d10;
+  overflow: hidden;
+}
+
+.art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75mm;
+}
+
+.stats span,
+.tags span {
+  border: 0.2mm solid rgba(245, 239, 227, 0.22);
+  color: #fff8ea;
+  padding: 0.45mm 0.8mm;
+  font-size: 4.9pt;
+  font-weight: 800;
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.rules {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+ul {
+  margin: 0;
+  padding-left: 3mm;
+}
+
+li {
+  font-size: 5.75pt;
+  line-height: 1.14;
+  margin-bottom: 0.55mm;
+}
+
+.resource {
+  color: #fff3c4;
+  border-top: 0.25mm solid rgba(215, 168, 62, 0.28);
+  padding-top: 0.85mm;
+  font-size: 5.45pt;
+  line-height: 1.12;
+  font-weight: 700;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1mm;
+  margin-top: auto;
+}
+
+.deck-helden .card-inner {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at top right, rgba(215, 168, 62, 0.22), transparent 46%),
+    #141820;
+}
+
+.deck-helden .art,
+.deck-szenarien .art {
+  height: 27mm;
+}
+
+.deck-basisaktionen .card-inner {
+  background: linear-gradient(145deg, #151a22, #101217);
+}
+
+.deck-klassenkarten .card-inner {
+  background: linear-gradient(145deg, #15131c, #101217);
+}
+
+.deck-raumkarten .card-inner {
+  background: linear-gradient(145deg, #151b18, #101217);
+}
+
+.deck-chaos .card-inner {
+  background:
+    radial-gradient(circle at top right, rgba(154, 51, 47, 0.38), transparent 42%),
+    linear-gradient(145deg, #1b1214, #101217);
+}
+
+.deck-loot .card-inner {
+  background:
+    radial-gradient(circle at top right, rgba(47, 106, 79, 0.32), transparent 42%),
+    linear-gradient(145deg, #121b17, #101217);
+}
+
+.deck-ziele .card-inner {
+  background:
+    radial-gradient(circle at top right, rgba(215, 168, 62, 0.18), transparent 42%),
+    linear-gradient(145deg, #181714, #101217);
+}
+
+.deck-ziele.no-art .card-inner {
+  padding: 3.2mm;
+  gap: 3mm;
+  background:
+    linear-gradient(180deg, rgba(215, 168, 62, 0.14), transparent 30%),
+    radial-gradient(circle at 82% 18%, rgba(215, 168, 62, 0.28), transparent 32%),
+    radial-gradient(circle at 12% 84%, rgba(39, 77, 116, 0.22), transparent 34%),
+    #101217;
+}
+
+.deck-ziele.no-art header {
+  min-height: 18mm;
+  border-bottom: 0.35mm solid rgba(215, 168, 62, 0.5);
+}
+
+.deck-ziele.no-art .deck {
+  font-size: 6.2pt;
+}
+
+.deck-ziele.no-art h2 {
+  font-size: 15.2pt;
+  line-height: 1.02;
+  margin-top: 1.4mm;
+}
+
+.deck-ziele.no-art .subtitle {
+  font-size: 7.4pt;
+  color: #f1d58c;
+}
+
+.deck-ziele.no-art .rules {
+  display: grid;
+  align-items: center;
+  border: 0.28mm solid rgba(215, 168, 62, 0.32);
+  padding: 3mm 3mm 3mm 1.6mm;
+  background: rgba(0, 0, 0, 0.24);
+}
+
+.deck-ziele.no-art li {
+  font-size: 8.2pt;
+  line-height: 1.32;
+  margin-bottom: 2.3mm;
+}
+
+.deck-ziele.no-art li:last-child {
+  color: #fff3c4;
+  font-weight: 800;
+}
+
+.deck-boss .card-inner {
+  background:
+    radial-gradient(circle at top right, rgba(154, 51, 47, 0.28), transparent 42%),
+    linear-gradient(145deg, #1b1612, #101217);
+}
+
+.card-back {
+  border: 0.6mm solid var(--line);
+}
+
+.back-art,
+.back-art img {
+  width: 100%;
+  height: 100%;
+}
+
+.back-art img {
+  object-fit: cover;
+  display: block;
+}
+
+.backs {
+  page-break-before: always;
+}
+
+.map-page {
+  background: #0b0c0f;
+}
+
+.map-sheet {
+  min-height: 270mm;
+  padding: 10mm;
+  background:
+    radial-gradient(circle at top right, rgba(215, 168, 62, 0.14), transparent 34%),
+    #101114;
+  border: 0.7mm solid var(--line);
+}
+
+.map-header {
+  display: flex;
+  gap: 6mm;
+  align-items: center;
+  border-bottom: 0.35mm solid var(--line);
+  padding-bottom: 6mm;
+}
+
+.map-header h1 {
+  font-size: 28pt;
+}
+
+.map-header p {
+  color: var(--muted);
+  margin-top: 2mm;
+}
+
+.map-board {
+  margin-top: 14mm;
+  border: 0.35mm solid rgba(215, 168, 62, 0.34);
+  background:
+    radial-gradient(circle at 82% 50%, rgba(154, 51, 47, 0.22), transparent 28%),
+    #111319;
+  padding: 6mm;
+}
+
+.map-board svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.paths path {
+  fill: none;
+  stroke: rgba(215, 168, 62, 0.58);
+  stroke-width: 5;
+  marker-end: url("#arrow");
+}
+
+.paths marker path {
+  fill: rgba(215, 168, 62, 0.8);
+}
+
+.map-node rect {
+  fill: #17191f;
+  stroke: rgba(215, 168, 62, 0.72);
+  stroke-width: 3;
+}
+
+.map-node text {
+  fill: var(--ink);
+  font-size: 26px;
+  font-weight: 900;
+  text-anchor: middle;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.start-node rect {
+  fill: #143225;
+}
+
+.boss-node rect {
+  fill: #3a1718;
+}
+
+.optional-node {
+  opacity: 0.78;
+}
+
+.map-notes {
+  margin-top: 12mm;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5mm;
+}
+
+.map-notes div {
+  border: 0.3mm solid rgba(215, 168, 62, 0.34);
+  padding: 5mm;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.map-notes strong {
+  color: var(--ink);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .cards {
+    page-break-after: always;
+  }
+}

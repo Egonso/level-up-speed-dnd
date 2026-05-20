@@ -1,0 +1,27 @@
+Project: Level-Up Speed DND
+Version: 0.1.0-event-prototype
+Total printed card faces: 158
+Imagegen unique cards used: 91/103
+Imagegen printed faces used: 146/158
+Text fallback unique cards: 12
+Fallback: goal-clock-rogue: Glocke · Rogue
+Fallback: goal-clock-bard: Glocke · Bard
+Fallback: goal-clock-fighter: Glocke · Fighter
+Fallback: goal-clock-wizard: Glocke · Wizard
+Fallback: goal-clock-druid: Glocke · Druid
+Fallback: goal-clock-barbarian: Glocke · Barbarian
+Fallback: goal-pass-rogue: Pass · Rogue
+Fallback: goal-pass-bard: Pass · Bard
+Fallback: goal-pass-fighter: Pass · Fighter
+Fallback: goal-pass-wizard: Pass · Wizard
+Fallback: goal-pass-druid: Pass · Druid
+Fallback: goal-pass-barbarian: Pass · Barbarian
+Helden: 6
+Basisaktionen: 32
+Klassenkarten: 28
+Szenarien: 4
+Ziele: 24
+Boss: 4
+Raumkarten: 24
+Loot: 12
+Chaos: 24

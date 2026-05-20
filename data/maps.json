@@ -1,0 +1,562 @@
+{
+  "project": "Level-Up Speed DND",
+  "version": "0.1.0-event-prototype",
+  "baseFlowMap": {
+    "id": "flow-base",
+    "title": "Neutrale Encounter Map",
+    "subtitle": "Universelles Messe-Board: Raumkarten verdeckt auflegen, Weg wählen, Boss erreichen.",
+    "art": "../assets/generated/flow-maps/flow-base.png",
+    "printArt": "../assets/print/flow-maps/flow-base.jpg",
+    "flowArt": "../assets/generated/flow-maps/flow-base.png",
+    "printFlowArt": "../assets/print/flow-maps/flow-base.jpg",
+    "scenarioRule": "Standard: Raum aufdecken, kurze Szene erzählen, Mechanik spielen, weiterziehen.",
+    "start": "Start",
+    "boss": "Boss",
+    "rooms": [
+      "Raum A",
+      "Raum B",
+      "Raum C",
+      "Raum D",
+      "Raum E",
+      "Raum F",
+      "Raum G",
+      "Raum H"
+    ]
+  },
+  "flowMaps": [
+    {
+      "id": "flow-bank",
+      "title": "Der Tresor der Mitternachtsbank",
+      "subtitle": "Heist-Flow: lautlos rein, Erdbeben überleben, Artefakt raus.",
+      "art": "../assets/generated/scenario-midnight-bank.png",
+      "printArt": "../assets/print/scenario-midnight-bank-thumb.jpg",
+      "flowArt": "../assets/generated/flow-maps/flow-bank.png",
+      "printFlowArt": "../assets/print/flow-maps/flow-bank.jpg",
+      "scenarioRule": "Nach dem dritten Raum zieht der DM jede Runde 1 Chaoskarte.",
+      "start": "Seiteneingang",
+      "boss": "Tresor",
+      "rooms": [
+        "Foyer",
+        "Schalterhalle",
+        "Sicherheitsgang",
+        "Archiv",
+        "Siegelraum",
+        "Wachraum",
+        "Notausgang",
+        "Tresorbrücke"
+      ]
+    },
+    {
+      "id": "flow-egg",
+      "title": "Das Ei im Kristallhort",
+      "subtitle": "Rettungs-Flow: Spur finden, Instabilität senken, Ei befreien.",
+      "art": "../assets/generated/scenario-dragon-egg.png",
+      "printArt": "../assets/print/scenario-dragon-egg-thumb.jpg",
+      "flowArt": "../assets/generated/flow-maps/flow-egg.png",
+      "printFlowArt": "../assets/print/flow-maps/flow-egg.jpg",
+      "scenarioRule": "Jede ausgelöste Falle erhöht Instabilität um 1.",
+      "start": "Höhleneingang",
+      "boss": "Ritualkreis",
+      "rooms": [
+        "Splitterschacht",
+        "Echohöhle",
+        "Kristallbrücke",
+        "Nestspur",
+        "Runenkreis",
+        "Wächterpfad",
+        "Wasserader",
+        "Horttor"
+      ]
+    },
+    {
+      "id": "flow-clock",
+      "title": "Die Glocke unter der Akademie",
+      "subtitle": "Uhrwerk-Flow: Mechanik lesen, Takt brechen, Glocke stoppen.",
+      "art": "../assets/generated/scenario-clock-bell.png",
+      "printArt": "../assets/print/scenario-clock-bell-thumb.jpg",
+      "flowArt": "../assets/generated/flow-maps/flow-clock.png",
+      "printFlowArt": "../assets/print/flow-maps/flow-clock.jpg",
+      "scenarioRule": "Im Bossraum steigt am Rundenende der Glockenzähler.",
+      "start": "Kellertür",
+      "boss": "Glockenraum",
+      "rooms": [
+        "Zahnradflur",
+        "Runenplatte",
+        "Werkstatt",
+        "Kettenzug",
+        "Ölkammer",
+        "Prüfstand",
+        "Resonanzgang",
+        "Hauptwelle"
+      ]
+    },
+    {
+      "id": "flow-pass",
+      "title": "Der Schattenpass",
+      "subtitle": "Escort-Flow: Wagen sichern, Route wählen, Passausgang halten.",
+      "art": "../assets/generated/scenario-shadow-pass.png",
+      "printArt": "../assets/print/scenario-shadow-pass-thumb.jpg",
+      "flowArt": "../assets/generated/flow-maps/flow-pass.png",
+      "printFlowArt": "../assets/print/flow-maps/flow-pass.jpg",
+      "scenarioRule": "Bei jeder zweiten Raumkarte rücken Verfolger näher.",
+      "start": "Wagenzug",
+      "boss": "Passausgang",
+      "rooms": [
+        "Geröllfeld",
+        "Wachfeuer",
+        "Schmaler Steg",
+        "Felsbogen",
+        "Nebelhang",
+        "Räuberposten",
+        "Brückenrest",
+        "Tunnelmund"
+      ]
+    }
+  ],
+  "tacticalMaps": [
+    {
+      "id": "bank-vault-boss",
+      "title": "Bank · Tresorraum",
+      "subtitle": "Bossraum mit Säulen, Tresortür, Artefakt und Einsturzstellen.",
+      "legend": [
+        "S Start",
+        "B Boss",
+        "A Artefakt",
+        "C Deckung/Säule",
+        "H Einsturz/Hazard",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#..C....C..#",
+        "#..........#",
+        "#..H....H..#",
+        "#....A.....#",
+        "#....B.....#",
+        "#..........#",
+        "#..C....C..#",
+        "#..........#",
+        "#SS......EE#",
+        "#SS......EE#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/bank-vault-boss.png",
+      "printArt": "../assets/print/maps/bank-vault-boss.jpg"
+    },
+    {
+      "id": "bank-security-hall",
+      "title": "Bank · Sicherheitsgang",
+      "subtitle": "Langer Gang mit Druckplatten, Alarmfeldern und Deckung.",
+      "legend": [
+        "S Start",
+        "T Falle",
+        "C Deckung",
+        "D Tür",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#SS..T..C.E#",
+        "#SS..T....E#",
+        "####..######",
+        "#....C.....#",
+        "#.TT....TT.#",
+        "#..........#",
+        "######..####",
+        "#D....C....#",
+        "#....T.....#",
+        "#....T.....#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/bank-security-hall.png",
+      "printArt": "../assets/print/maps/bank-security-hall.jpg"
+    },
+    {
+      "id": "crystal-hatchery-boss",
+      "title": "Kristallhort · Ritualnest",
+      "subtitle": "Bossraum mit Ei, Splitterzonen und Ritualpylonen.",
+      "legend": [
+        "S Start",
+        "B Boss",
+        "A Drachenei",
+        "H Kristallsplitter",
+        "C Pylon/Deckung",
+        "E Fluchtweg"
+      ],
+      "grid": [
+        "############",
+        "#..H....H.E#",
+        "#.C......C.#",
+        "#....H.....#",
+        "#....A.....#",
+        "#...BBB....#",
+        "#....B.....#",
+        "#....H.....#",
+        "#.C......C.#",
+        "#SS.H...H..#",
+        "#SS........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/crystal-hatchery-boss.png",
+      "printArt": "../assets/print/maps/crystal-hatchery-boss.jpg"
+    },
+    {
+      "id": "crystal-bridge",
+      "title": "Kristallhort · Splitterbrücke",
+      "subtitle": "Enger Übergang, schwieriges Gelände und ein riskanter kurzer Weg.",
+      "legend": [
+        "S Start",
+        "H Abgrund/Splitter",
+        "T instabile Platte",
+        "C Kristallblock",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#SS..HHH...#",
+        "#SS..H.H.EE#",
+        "###..H.H.EE#",
+        "#....H.H...#",
+        "#.TT...TT..#",
+        "#....H.H...#",
+        "###..H.H.###",
+        "#....H.H...#",
+        "#..C.H.H.C.#",
+        "#....HHH...#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/crystal-bridge.png",
+      "printArt": "../assets/print/maps/crystal-bridge.jpg"
+    },
+    {
+      "id": "clock-bell-boss",
+      "title": "Akademie · Glockenraum",
+      "subtitle": "Bossraum mit Glocke, Uhrwerkfeldern und drei Reparaturpunkten.",
+      "legend": [
+        "S Start",
+        "B Boss",
+        "A Glocke",
+        "R Reparaturpunkt",
+        "H Zahnrad-Hazard",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#R...H...R.#",
+        "#....H.....#",
+        "#..C...C...#",
+        "#....A.....#",
+        "#...BBB....#",
+        "#....B.....#",
+        "#..C...C...#",
+        "#....H.....#",
+        "#SS..H..R.E#",
+        "#SS.......E#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/clock-bell-boss.png",
+      "printArt": "../assets/print/maps/clock-bell-boss.jpg"
+    },
+    {
+      "id": "clock-gear-hall",
+      "title": "Akademie · Zahnradflur",
+      "subtitle": "Rotierende Linien, Hebel und sichere Nischen.",
+      "legend": [
+        "S Start",
+        "H rotierendes Zahnrad",
+        "R Hebel",
+        "C Nische",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#SS..H....E#",
+        "#SS..H..R.E#",
+        "####.H.#####",
+        "#C...H...C.#",
+        "#....H.....#",
+        "#.HHHHHHHH.#",
+        "#....H.....#",
+        "#C...H...C.#",
+        "#####.H.####",
+        "#....R.....#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/clock-gear-hall.png",
+      "printArt": "../assets/print/maps/clock-gear-hall.jpg"
+    },
+    {
+      "id": "shadow-pass-boss",
+      "title": "Schattenpass · Passausgang",
+      "subtitle": "Bossraum mit Wagenziel, Höhenkante und enger Straße.",
+      "legend": [
+        "S Start/Wagen",
+        "B Boss",
+        "H Abgrund/Geröll",
+        "C Felsen",
+        "E Ziellinie"
+      ],
+      "grid": [
+        "############",
+        "#HHHH....EE#",
+        "#H..C....EE#",
+        "#H.........#",
+        "#H....B....#",
+        "#H...BBB...#",
+        "#H....B....#",
+        "#H.........#",
+        "#H..C......#",
+        "#SS....C...#",
+        "#SSHHHHHHHH#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/shadow-pass-boss.png",
+      "printArt": "../assets/print/maps/shadow-pass-boss.jpg"
+    },
+    {
+      "id": "shadow-broken-bridge",
+      "title": "Schattenpass · Brückenrest",
+      "subtitle": "Wagen-Engstelle mit riskanten Sprüngen und Seitenroute.",
+      "legend": [
+        "S Start",
+        "H Abgrund",
+        "T brüchiges Feld",
+        "C Deckung",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#SS..HHH..E#",
+        "#SS..H.H..E#",
+        "###..H.H.###",
+        "#....T.T...#",
+        "#.C..T.T.C.#",
+        "#....T.T...#",
+        "###..H.H.###",
+        "#....H.H...#",
+        "#....HHH...#",
+        "#..........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/shadow-broken-bridge.png",
+      "printArt": "../assets/print/maps/shadow-broken-bridge.jpg"
+    },
+    {
+      "id": "generic-guard-room",
+      "title": "Generic · Wachraum",
+      "subtitle": "Für Patrouille, Elitewache oder Schützenposition.",
+      "legend": [
+        "S Start",
+        "G Gegner-Start",
+        "C Deckung",
+        "D Tür",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#D...C...E.#",
+        "#..........#",
+        "#..G....G..#",
+        "#..........#",
+        "#....C.....#",
+        "#..........#",
+        "#..C....C..#",
+        "#..........#",
+        "#SS........#",
+        "#SS........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/generic-guard-room.png",
+      "printArt": "../assets/print/maps/generic-guard-room.jpg"
+    },
+    {
+      "id": "generic-puzzle-room",
+      "title": "Generic · Siegelraum",
+      "subtitle": "Für Drei Siegel, Boss-Schwäche oder arkanen Alarm.",
+      "legend": [
+        "S Start",
+        "R Siegel/Checkpunkt",
+        "T Fehlschlag-Falle",
+        "C Deckung",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#....R....E#",
+        "#..........#",
+        "#..T...T...#",
+        "#..........#",
+        "#R...C...R.#",
+        "#..........#",
+        "#...T...T..#",
+        "#..........#",
+        "#SS....R...#",
+        "#SS........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/generic-sigil-room.png",
+      "printArt": "../assets/print/maps/generic-sigil-room.jpg"
+    },
+    {
+      "id": "generic-loot-cache",
+      "title": "Generic · Vorratskiste",
+      "subtitle": "Lootraum mit optionalem Risiko und Rückzugsweg.",
+      "legend": [
+        "S Start",
+        "L Loot",
+        "T Falle",
+        "C Deckung",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#......E...#",
+        "#..C.......#",
+        "#..........#",
+        "#....L.....#",
+        "#...TTT....#",
+        "#....L.....#",
+        "#..........#",
+        "#.......C..#",
+        "#SS........#",
+        "#SS........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/generic-loot-cache.png",
+      "printArt": "../assets/print/maps/generic-loot-cache.jpg"
+    },
+    {
+      "id": "generic-trap-corridor",
+      "title": "Generic · Fallenflur",
+      "subtitle": "Schnell, gefährlich, gut für Zeitdruck.",
+      "legend": [
+        "S Start",
+        "T Falle",
+        "H Hazard",
+        "C sichere Nische",
+        "E Ausgang"
+      ],
+      "grid": [
+        "############",
+        "#SS.T..H..E#",
+        "#SS.T..H..E#",
+        "####..H.####",
+        "#C....H...C#",
+        "#..TT...TT.#",
+        "#C...H....C#",
+        "####.H..####",
+        "#....H.....#",
+        "#.TT...TT..#",
+        "#..........#",
+        "############"
+      ],
+      "art": "../assets/generated/maps/generic-trap-corridor.png",
+      "printArt": "../assets/print/maps/generic-trap-corridor.jpg"
+    }
+  ],
+  "blankGrids": [
+    {
+      "id": "blank-8",
+      "title": "Blanko Grid 8x8",
+      "size": 8
+    },
+    {
+      "id": "blank-10",
+      "title": "Blanko Grid 10x10",
+      "size": 10
+    },
+    {
+      "id": "blank-12",
+      "title": "Blanko Grid 12x12",
+      "size": 12
+    },
+    {
+      "id": "blank-notes",
+      "title": "Blanko Raum + Notizen",
+      "size": 8,
+      "notes": true
+    }
+  ],
+  "markers": [
+    {
+      "label": "1 AP",
+      "count": 24,
+      "kind": "ap"
+    },
+    {
+      "label": "2 AP",
+      "count": 12,
+      "kind": "ap"
+    },
+    {
+      "label": "+1d6",
+      "count": 12,
+      "kind": "bonus"
+    },
+    {
+      "label": "Vorteil",
+      "count": 12,
+      "kind": "bonus"
+    },
+    {
+      "label": "Prone",
+      "count": 8,
+      "kind": "condition"
+    },
+    {
+      "label": "Restrained",
+      "count": 8,
+      "kind": "condition"
+    },
+    {
+      "label": "Konzentration",
+      "count": 8,
+      "kind": "condition"
+    },
+    {
+      "label": "Rage",
+      "count": 6,
+      "kind": "resource"
+    },
+    {
+      "label": "Wild Shape",
+      "count": 4,
+      "kind": "resource"
+    },
+    {
+      "label": "Boss +8 HP",
+      "count": 4,
+      "kind": "danger"
+    },
+    {
+      "label": "Druck",
+      "count": 8,
+      "kind": "danger"
+    },
+    {
+      "label": "Instabilität",
+      "count": 6,
+      "kind": "danger"
+    },
+    {
+      "label": "Glocke",
+      "count": 4,
+      "kind": "danger"
+    },
+    {
+      "label": "Monster",
+      "count": 18,
+      "kind": "monster"
+    },
+    {
+      "label": "Elite",
+      "count": 6,
+      "kind": "monster"
+    },
+    {
+      "label": "Boss",
+      "count": 4,
+      "kind": "boss"
+    }
+  ]
+}
