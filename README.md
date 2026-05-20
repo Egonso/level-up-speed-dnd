@@ -21,7 +21,7 @@ Für Chui oder neue DMs:
 ## Was Im Set Ist
 
 - 6 Helden: Rogue, Bard, Fighter, Wizard, Druid, Barbarian.
-- 158 gedruckte Kartenflächen aus 103 eindeutigen Kartendaten.
+- 158 gedruckte Kartenflächen aus 103 eindeutigen Imagegen-Karten.
 - 4 Szenarien: Mitternachtsbank, Kristallhort, Akademie-Glocke, Schattenpass.
 - 5 Flowmaps: 1 neutrale Grundmap und 4 Szenario-Maps.
 - 12 taktische Encounter-Maps mit sichtbarem Raster.
@@ -58,4 +58,4 @@ PDFs werden aus den HTML-Dateien im Ordner `print/` gerendert. Die bereits entha
 
 ## Designstand
 
-Die Maps und der Großteil der Karten sind als generative Rasterbilder erzeugt und im Projekt gespeichert. Für das Event ist die Priorität bewusst: visuell starke Maps, schnelle Lesbarkeit, robuste Anfängerführung. Einige Zielkarten sind deshalb klare Textkarten statt einzelner Vollbild-Artworks.
+Alle Karten, Flowmaps, taktischen Maps und Guides sind als generative Rasterbilder erzeugt und im Projekt gespeichert. Für das Event ist die Priorität: visuell starke Maps, schnelle Lesbarkeit und robuste Anfängerführung.

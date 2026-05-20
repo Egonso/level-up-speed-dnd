@@ -13,15 +13,14 @@ const maps = readJson("data/maps.json");
 const printedFaces = cards.reduce((sum, card) => sum + (card.count ?? 1), 0);
 const imagegenCards = cards.filter((card) => exists(`assets/imagegen-cards/${card.id}.png`));
 const fallbackCards = cards.filter((card) => !exists(`assets/imagegen-cards/${card.id}.png`));
-const allowedFallbackDecks = new Set(["Ziele"]);
 
 if (cards.length !== 103) fail.push(`Erwartet 103 eindeutige Karten, gefunden ${cards.length}.`);
 if (printedFaces !== 158) fail.push(`Erwartet 158 gedruckte Kartenflächen, gefunden ${printedFaces}.`);
-if (fallbackCards.some((card) => !allowedFallbackDecks.has(card.deck))) {
-  fail.push("Nicht-Zielkarten ohne Imagegen-Kartenbild gefunden.");
+if (fallbackCards.length) {
+  fail.push(`Karten ohne Imagegen-Kartenbild gefunden: ${fallbackCards.map((card) => card.id).join(", ")}`);
 }
 
-for (const card of imagegenCards) {
+for (const card of cards) {
   if (!exists(`assets/print/cards/${card.id}.jpg`)) {
     fail.push(`Optimiertes Print-Kartenbild fehlt: ${card.id}`);
   }
