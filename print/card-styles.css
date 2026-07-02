@@ -1,9 +1,11 @@
 @page {
-  size: A4;
+  size: A4 landscape;
   margin: 9mm;
 }
 
 :root {
+  --card-width: 63mm;
+  --card-height: 88mm;
   --ink: #f5efe3;
   --muted: #b8aa91;
   --line: rgba(234, 191, 94, 0.42);
@@ -29,7 +31,7 @@ body {
 }
 
 .intro {
-  min-height: 270mm;
+  min-height: 180mm;
   display: grid;
   place-items: center;
   text-align: center;
@@ -69,16 +71,18 @@ p {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 63mm);
-  grid-auto-rows: 88mm;
+  grid-template-columns: repeat(4, var(--card-width));
+  grid-auto-rows: var(--card-height);
   gap: 4mm;
   align-items: start;
+  justify-content: center;
   page-break-after: always;
+  break-after: page;
 }
 
 .card {
-  width: 63mm;
-  height: 88mm;
+  width: var(--card-width);
+  height: var(--card-height);
   overflow: hidden;
   page-break-inside: avoid;
   break-inside: avoid;
@@ -312,16 +316,12 @@ li {
   display: block;
 }
 
-.backs {
-  page-break-before: always;
-}
-
 .map-page {
   background: #0b0c0f;
 }
 
 .map-sheet {
-  min-height: 270mm;
+  min-height: 180mm;
   padding: 10mm;
   background:
     radial-gradient(circle at top right, rgba(215, 168, 62, 0.14), transparent 34%),

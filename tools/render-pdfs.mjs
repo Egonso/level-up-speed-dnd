@@ -39,6 +39,8 @@ for (const [html, pdf] of jobs) {
     "--headless",
     "--disable-gpu",
     "--no-sandbox",
+    "--no-pdf-header-footer",
+    "--print-to-pdf-no-header",
     `--print-to-pdf=${pdfPath}`,
     `file://${htmlPath}`
   ], { stdio: "inherit" });

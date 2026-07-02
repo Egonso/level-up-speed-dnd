@@ -1,8 +1,8 @@
 Project: Level-Up Speed DND
 Version: 0.1.0-event-prototype
-Total printed card faces: 158
-Imagegen unique cards used: 103/103
-Imagegen printed faces used: 158/158
+Total printed card faces: 168
+Imagegen unique cards used: 113/113
+Imagegen printed faces used: 168/168
 Text fallback unique cards: 0
 Helden: 6
 Basisaktionen: 32
@@ -11,5 +11,5 @@ Szenarien: 4
 Ziele: 24
 Boss: 4
 Raumkarten: 24
-Loot: 12
+Loot: 22
 Chaos: 24

@@ -1,6 +1,6 @@
 # Image-2-Bildprompts
 
-Alle Motive wurden mit dem eingebauten Imagegen/Image-2-Pfad erzeugt und danach nach `assets/generated/` kopiert. Die Kartenregeln und Werte werden im HTML/PDF gesetzt, nicht als Bildtext, damit AP-Kosten, DCs und Würfelwerte zuverlässig bleiben.
+Alle sichtbaren Spielmotive wurden mit dem eingebauten Imagegen/Image-2-Pfad erzeugt und danach ins Projekt kopiert. Die finalen Karten liegen als komplette Imagegen-Karten unter `assets/imagegen-cards/`; die optimierten Druckvarianten liegen unter `assets/print/cards/`.
 
 ## Gemeinsamer Stil
 
@@ -9,7 +9,7 @@ Alle Motive wurden mit dem eingebauten Imagegen/Image-2-Pfad erzeugt und danach 
 - dunkle Charcoal-Basis
 - metallische Goldakzente passend zum Dragon-Dynamics-Logo
 - klare Silhouette, hoher Kontrast
-- kein Text, keine Buchstaben, keine Zahlen, kein Wasserzeichen
+- bei Vollkarten nur den vorgegebenen Kartentext verwenden, kein zusätzliches Füllmaterial und kein Wasserzeichen
 - keine beige/cream Waschpalette
 
 ## Dateien
@@ -30,5 +30,4 @@ Alle Motive wurden mit dem eingebauten Imagegen/Image-2-Pfad erzeugt und danach 
 
 ## Nachgenerieren
 
-Für neue Karten denselben Stilblock verwenden und nur Subject/Scene austauschen. Wichtige Regel: keine Regeln oder Werte ins Bild prompten, wenn sie korrekt lesbar bleiben müssen. Der Text gehört in `data/cards.json` und das Drucklayout.
-
+Für neue Vollkarten denselben Stilblock verwenden und die exakten Werte aus `data/cards.json` in den Prompt übernehmen. Danach das finale PNG nach `assets/imagegen-cards/` kopieren und eine optimierte JPG-Version nach `assets/print/cards/` erzeugen.

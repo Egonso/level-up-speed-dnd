@@ -9,13 +9,15 @@ const exists = (file) => fs.existsSync(path.join(root, file));
 
 const cards = readJson("data/cards.json").cards;
 const maps = readJson("data/maps.json");
+const expectedUniqueCards = 113;
+const expectedPrintedFaces = 168;
 
 const printedFaces = cards.reduce((sum, card) => sum + (card.count ?? 1), 0);
 const imagegenCards = cards.filter((card) => exists(`assets/imagegen-cards/${card.id}.png`));
 const fallbackCards = cards.filter((card) => !exists(`assets/imagegen-cards/${card.id}.png`));
 
-if (cards.length !== 103) fail.push(`Erwartet 103 eindeutige Karten, gefunden ${cards.length}.`);
-if (printedFaces !== 158) fail.push(`Erwartet 158 gedruckte Kartenflächen, gefunden ${printedFaces}.`);
+if (cards.length !== expectedUniqueCards) fail.push(`Erwartet ${expectedUniqueCards} eindeutige Karten, gefunden ${cards.length}.`);
+if (printedFaces !== expectedPrintedFaces) fail.push(`Erwartet ${expectedPrintedFaces} gedruckte Kartenflächen, gefunden ${printedFaces}.`);
 if (fallbackCards.length) {
   fail.push(`Karten ohne Imagegen-Kartenbild gefunden: ${fallbackCards.map((card) => card.id).join(", ")}`);
 }

@@ -4,9 +4,9 @@
 
 Empfehlung für den ersten Event-Prototyp:
 
-- A4, doppelseitig optional
+- A4 Querformat, 8 Karten pro Seite
 - 300 g/m² Papier oder normaler Druck plus Laminierung
-- Kartenformat: Pokergröße ungefähr 63 x 88 mm
+- Kartenformat: Pokergröße ungefähr 63 x 88 mm, 2 Reihen mit je 4 Karten
 - Ecken nach Laminierung schneiden oder abrunden
 - Sets mit Gummiband oder kleinen Deckboxen trennen
 
@@ -21,7 +21,7 @@ Empfehlung für den ersten Event-Prototyp:
 | Bosskarten | 4 |
 | Raumkarten | 24 |
 | Chaoskarten | 24 |
-| Lootkarten | 12 |
+| Lootkarten | 22 |
 | Zielkarten | 24 |
 
 Für einen Test reichen 1 komplettes Set plus 1 Reserveausdruck der häufigsten Basisaktionen.

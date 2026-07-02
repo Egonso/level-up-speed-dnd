@@ -937,6 +937,96 @@
       "rules": ["Reduziere Schaden gegen dich oder einen Verbündeten in 3 Feldern um 1d10.", "Einmalig."],
       "count": 2
     },
+    {
+      "id": "loot-scroll-fireball",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Fireball",
+      "subtitle": "Aktion - 2 AP",
+      "rules": ["Zielpunkt in 12 Feldern. 3x3-Zone.", "Dex Save DC 14: 6d6 Feuer, Erfolg halb."],
+      "count": 1
+    },
+    {
+      "id": "loot-scroll-lightning-bolt",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Lightning Bolt",
+      "subtitle": "Aktion - 2 AP",
+      "rules": ["Gerade Linie bis 8 Felder, 1 Feld breit.", "Dex Save DC 14: 6d6 Blitz, Erfolg halb."],
+      "count": 1
+    },
+    {
+      "id": "loot-scroll-revivify",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Revivify",
+      "subtitle": "Aktion - 2 AP",
+      "rules": ["Berühre einen Helden bei 0 HP.", "Er steht mit 1 HP auf und darf sofort 3 Felder gehen."],
+      "count": 1
+    },
+    {
+      "id": "loot-scroll-raise-dead",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Raise Dead",
+      "subtitle": "Aktion - 2 AP",
+      "rules": ["Hole einen ausgeschalteten Helden zurück.", "Er kommt mit 10 HP zurück; danach zieht der DM 1 Chaoskarte."],
+      "count": 1
+    },
+    {
+      "id": "loot-scroll-counterspell",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Counterspell",
+      "subtitle": "Reaktion",
+      "rules": ["Stoppe einen Bosszauber oder Magieeffekt.", "Bei Boss: DC 14 Arcana, sonst automatisch."],
+      "count": 1
+    },
+    {
+      "id": "loot-scroll-fly",
+      "deck": "Loot",
+      "type": "Spell Scroll",
+      "title": "Schriftrolle: Fly",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Ein Held ignoriert Gelände/Fallen bis Rundenende.", "Er darf sofort bis zu 6 Felder fliegen."],
+      "count": 1
+    },
+    {
+      "id": "loot-stormblade",
+      "deck": "Loot",
+      "type": "Magic Item",
+      "title": "Sturmklinge",
+      "subtitle": "Aktion - 2 AP",
+      "rules": ["Waffenangriff +6: 1d8+4 Hieb +1d8 Blitz.", "Bei Treffer springt 1d6 Blitz auf ein Ziel in 3 Feldern."],
+      "count": 1
+    },
+    {
+      "id": "loot-guardian-armor",
+      "deck": "Loot",
+      "type": "Magic Item",
+      "title": "Wächterrüstung",
+      "subtitle": "Reaktion",
+      "rules": ["Wenn ein Held in 3 Feldern getroffen wird: tausche Plätze.", "Du bekommst +2 AC gegen diesen Treffer."],
+      "count": 1
+    },
+    {
+      "id": "loot-shadowcloak",
+      "deck": "Loot",
+      "type": "Magic Item",
+      "title": "Schattenmantel",
+      "subtitle": "Bonus Action - 1 AP",
+      "rules": ["Teleportiere dich 4 Felder in Dunkelheit/Deckung.", "Dein nächster Angriff hat Vorteil."],
+      "count": 1
+    },
+    {
+      "id": "loot-giant-belt",
+      "deck": "Loot",
+      "type": "Magic Item",
+      "title": "Gürtel der Riesenkraft",
+      "subtitle": "einmalig",
+      "rules": ["Bis Rundenende: Str-Checks mit Vorteil.", "Ein Treffer oder Kraftakt wirft das Ziel 3 Felder."],
+      "count": 1
+    },
 
     {
       "id": "chaos-earthquake",

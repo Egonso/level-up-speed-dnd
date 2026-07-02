@@ -1,6 +1,8 @@
 .DS_Store
 .imagegen-*
 .marker_*
+release/
+print/*duplex*.pdf
 qa/*.png
 qa/*.jpg
 qa/**/*.png

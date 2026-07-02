@@ -21,7 +21,7 @@ Für Chui oder neue DMs:
 ## Was Im Set Ist
 
 - 6 Helden: Rogue, Bard, Fighter, Wizard, Druid, Barbarian.
-- 158 gedruckte Kartenflächen aus 103 eindeutigen Imagegen-Karten.
+- 168 gedruckte Kartenflächen aus 113 eindeutigen Imagegen-Karten.
 - 4 Szenarien: Mitternachtsbank, Kristallhort, Akademie-Glocke, Schattenpass.
 - 5 Flowmaps: 1 neutrale Grundmap und 4 Szenario-Maps.
 - 12 taktische Encounter-Maps mit sichtbarem Raster.

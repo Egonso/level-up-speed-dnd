@@ -17,6 +17,7 @@ const expanded = data.cards.flatMap((card) => {
   const count = card.count ?? 1;
   return Array.from({ length: count }, (_, index) => ({ ...card, copyIndex: index + 1 }));
 });
+const cardsPerSheet = 8;
 
 const deckOrder = [
   "Helden",
@@ -42,6 +43,8 @@ const escapeHtml = (value = "") =>
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+
+const stripTrailingWhitespace = (value) => value.replace(/[ \t]+$/gm, "");
 
 const cardClass = (card) =>
   [
@@ -120,7 +123,20 @@ function renderBack() {
   `;
 }
 
-const cardBacks = Array.from({ length: expanded.length }, renderBack).join("");
+function renderSheets(items, renderItem, className = "") {
+  const sheets = [];
+  for (let index = 0; index < items.length; index += cardsPerSheet) {
+    const sheetItems = items.slice(index, index + cardsPerSheet);
+    sheets.push(`
+    <section class="cards${className ? ` ${className}` : ""}">
+      ${sheetItems.map(renderItem).join("")}
+    </section>
+    `);
+  }
+  return sheets.join("");
+}
+
+const cardBacks = Array.from({ length: expanded.length }, (_, index) => ({ id: `back-${index + 1}` }));
 
 const html = `<!doctype html>
 <html lang="de">
@@ -139,12 +155,8 @@ const html = `<!doctype html>
         <p>Event-Prototyp · Level 4 · 6 AP pro Zug · Aktion 2 AP · Bonus Action 1 AP · 3 Felder Bewegung 1 AP.</p>
       </div>
     </section>
-    <section class="cards">
-      ${expanded.map(renderCard).join("")}
-    </section>
-    <section class="cards backs">
-      ${cardBacks}
-    </section>
+    ${renderSheets(expanded, renderCard)}
+    ${renderSheets(cardBacks, renderBack, "backs")}
   </main>
 </body>
 </html>`;
@@ -234,8 +246,8 @@ const mapHtml = `<!doctype html>
 </body>
 </html>`;
 
-fs.writeFileSync(path.join(printDir, "speed-dnd-cards.html"), html);
-fs.writeFileSync(path.join(printDir, "encounter-map.html"), mapHtml);
+fs.writeFileSync(path.join(printDir, "speed-dnd-cards.html"), stripTrailingWhitespace(html));
+fs.writeFileSync(path.join(printDir, "encounter-map.html"), stripTrailingWhitespace(mapHtml));
 
 const counts = expanded.reduce((acc, card) => {
   acc[card.deck] = (acc[card.deck] ?? 0) + 1;

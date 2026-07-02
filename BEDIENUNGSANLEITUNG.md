@@ -27,7 +27,7 @@ Für einen Tisch:
 
 Empfehlung:
 
-- Karten auf 300 g/m² Papier drucken oder laminieren.
+- Karten auf A4 quer mit 8 Karten pro Seite auf 300 g/m² Papier drucken oder laminieren.
 - Guides und Maps auf A4 drucken.
 - Flowmaps und taktische Maps matt laminieren, damit Marker darauf liegen bleiben.
 - Marker ausschneiden und nach Typ in kleine Schalen sortieren.
